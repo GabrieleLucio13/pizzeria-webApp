@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestione Menu</title>
+    <link rel="stylesheet" th:href="@{../css/style.css}">
+</head>
+<header>
+    <a th:href="@{http://localhost:4200/}">🔙 Ritorna alla Pizzeria! 🔙</a>
+</header>
+<body>
+<h1>Lista dei Cibi</h1>
+<li><a th:href="@{/dashboard}">←Torna alla Dashboard</a></li>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Tipo</th>
+        <th>Ingredienti</th>
+        <th>Prezzo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="food : ${foods}">
+        <td th:text="${food.id}">ID</td>
+        <td th:text="${food.name}">Nome</td>
+        <td th:text="${food.type}">Tipo</td>
+        <td th:text="${food.ingredients}">Ingredienti</td>
+        <td th:text="${food.price}">Prezzo</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>➕Aggiungi un piatto alla lista del menu </h2>
+<form th:action="@{/menu_editor/add}" method="post">
+    <input type="text" name="name" placeholder="Nome" required>
+    <input type="text" name="type" placeholder="Tipo" required>
+    <input type="text" name="ingredients" placeholder="Descrizione" required>
+    <input type="number" step="0.01" name="price" placeholder="Prezzo" required>
+    <button type="submit">Aggiungi</button>
+</form>
+<h2>➖ Cancella un piatto dalla lista del menu </h2>
+<form th:action="@{/menu_editor/delete}" method="post">
+    <input type="number" name="id" placeholder="Inserire ID Piatto" required>
+    <button type="submit">Elimina</button>
+</form>
+</body>
+</html>

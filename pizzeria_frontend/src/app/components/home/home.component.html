@@ -1,0 +1,82 @@
+<div class = "title">
+  <h1>GABRIELINO PIZZA & VINO</h1>
+</div>
+
+
+<div id="carousel-custom" class="carousel-width" *ngIf="images.length > 0">
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div
+        class="carousel-item"
+        *ngFor="let image of images; let i = index"
+        [class.active]="i === 0"
+      >
+        <img [src]="image" class="d-block w-100" alt="Image {{i + 1}}" />
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<div class ="text_box">
+    <h2> "Se si fa in quattro per te, è una pizza..."</h2>
+    <p>Da oltre 20 anni, il signor Gabrielino porta sulla vostra tavola il sapore genuino della pizza napoletana, preparata con ingredienti selezionati e cotta nel nostro forno a legna per una croccantezza perfetta e un cuore morbido.</p>
+</div> 
+
+<div class ="text_box">
+    <h2>La nostra Filosofia</h2>
+    <p>Crediamo nella tradizione, nell’artigianalità e nella qualità. Ogni pizza nasce da un impasto fatto a mano, lievitato lentamente, e condito con pomodoro San Marzano DOP, mozzarella di bufala campana e basilico fresco. Per noi, la pizza è un’emozione da condividere.</p>
+</div>
+
+<div class ="text_box">
+    <h2>...E non solo pizza!</h2>
+    <p>Abbiamo anche antipasti freschi, arancini, insalate di fantasia e una selezione di vini italiani per accompagnare al meglio il vostro pasto.</p>
+</div>  
+
+<div class="card-container">
+  <!-- Card 1: Menu-->
+  <div class="card menu-card" style="width: 25rem;">
+    <img src="/assets/images/pizza.png" class="card-img-top" alt="Menu" style="height: 300px">
+    <div class="card-body">
+      <h5 class="card-title">Menu</h5>
+      <p class="card-text">Sfoglia il menu della nostra pizzeria!</p>
+      <a routerLink="/foods" routerLinkActive="active" class="btn btn-warning">Esplora</a>
+    </div>
+  </div>
+  <!-- Card 2: Prenota -->
+  <div class="card menu-card" style="width: 25rem;">
+    <img src="/assets/images/prenotazione.png" class="card-img-top" alt="Prenotazione" style="height: 300px">
+    <div class="card-body">
+      <h5 class="card-title">Prenota un Tavolo</h5>
+      <p class="card-text">Garantisci il tuo posto per una serata speciale!</p>
+      <a routerLink="/reservation" class="btn btn-warning">Prenota Ora</a>
+    </div>
+  </div>
+
+  <!-- Card 3: Calendario -->
+  <div class="card menu-card" style="width: 25rem;">
+    <img src="/assets/images/june-4th-calendar-vintage.webp" class="card-img-top" alt="Offerte" style="height: 300px">
+    <div class="card-body">
+      <h5 class="card-title">Calendario</h5>
+      <p class="card-text">Vuoi prenotare? Aggiornati sulle nostre aperture!</p>
+      <a routerLink="/calendar" class="btn btn-warning">Scopri di più</a>
+    </div>
+  </div>
+</div>

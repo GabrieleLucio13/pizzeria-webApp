@@ -1,0 +1,28 @@
+<h1>Menu Disponibile</h1>
+
+<div class="menu-container">
+  
+  <div class="category-selector">
+    <button *ngFor="let tipo of types" (click)="selezionaTipo(tipo)" [class.active]="tipo === typeSelected">
+      {{ tipo }}
+    </button>
+  </div>
+
+  
+  <div class="menu-list">
+    <div class="menu-item" *ngFor="let food of filteredFood">
+      <h3>{{ food.name }}</h3>
+      <p> {{ food.ingredients }}</p>
+      <p><strong>Prezzo:</strong>{{ food.price }} € </p>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <ul>
+    <li><a routerLink="" routerLinkActive="active"> 🏠Home </a></li>
+  </ul>
+</nav>
+
+
+

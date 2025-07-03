@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestione Calendario</title>
+    <link rel="stylesheet" th:href="@{../css/style.css}">
+</head>
+<header>
+    <a th:href="@{http://localhost:4200/}">🔙 Ritorna alla Pizzeria! 🔙</a>
+</header>
+<body>
+<h1>Calendario di Apertura</h1>
+<a th:href="@{/dashboard}">←Torna alla dashboard</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Data</th>
+        <th>Giorno</th>
+        <th>Mese</th>
+        <th>Apertura</th>
+        <th>Chiusura</th>
+        <th>Chiuso</th>
+        <th>Azioni</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="giorno : ${calendar}">
+        <td th:text="${giorno.data}"></td>
+        <td th:text="${giorno.giorno}"></td>
+        <td th:text="${giorno.mese}"></td>
+        <td th:text="${giorno.apertura}"></td>
+        <td th:text="${giorno.chiusura}"></td>
+        <td th:text="${giorno.chiuso ? 'Sì' : 'No'}"></td>
+        <td>
+            <a th:href="@{/calendar_editor/edit(data=${giorno.data})}">Modifica</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

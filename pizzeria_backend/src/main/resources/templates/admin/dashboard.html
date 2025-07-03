@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Dashboard Admin</title>
+  <link rel="stylesheet" th:href="@{../css/style.css}">
+</head>
+<header>
+  <a th:href="@{/logout}">🔙 Ritorna alla Pizzeria! 🔙</a>
+</header>
+<body>
+<h1>Benvenuto nella Dashboard</h1>
+
+<div class="card-container">
+  <div class="card">
+    <h2>Gestione Menu</h2>
+    <p>Modifica, aggiungi o rimuovi piatti dal menu.</p>
+    <a class="btn" th:href="@{/menu_editor}">Vai→</a>
+  </div>
+
+  <div class="card">
+    <h2>Gestione Prenotazioni</h2>
+    <p>Visualizza e gestisci le prenotazioni dei clienti.</p>
+    <a class="btn" th:href="@{/reservation}">Vai→</a>
+  </div>
+
+  <div class="card">
+    <h2>Gestione Calendario</h2>
+    <p>Imposta orari di apertura e chiusura per i giorni.</p>
+    <a class="btn" th:href="@{/calendar_editor}">Vai→</a>
+  </div>
+</div>
+</body>
+</html>

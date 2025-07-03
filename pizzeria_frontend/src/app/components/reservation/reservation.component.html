@@ -1,0 +1,93 @@
+<h1>Fai una prenotazione!</h1>
+
+<div class="reservation-container">
+  <div class="category-selector">
+    <button class="reservation-button" (click)="azione = 'aggiungi'; showDetails = false ; modifyDetails = false ">
+      <p>Aggiungi prenotazione</p>
+    </button>
+    <button class="reservation-button" (click)="azione = 'controlla'">
+      <p>Controlla prenotazione</p>
+    </button>
+  </div>
+
+  <div class="compiler-list">
+    <!-- FORM AGGIUNTA -->
+    <form *ngIf="azione === 'aggiungi'" (ngSubmit)="addReservation()" #bookForm="ngForm">
+      <label>Nome:</label>
+      <input type="text" [(ngModel)]="prenotazione.name" name="name" required />
+      <br />
+
+      <label>Email/Telefono:</label>
+      <input type="text" [(ngModel)]="prenotazione.contact" name="contact" required />
+      <br />
+
+      <label>Data:</label>
+      <input type="date" [(ngModel)]="prenotazione.date" name="date" required />
+      <br /><br />
+
+      <label>Ora:</label>
+      <input type="time" [(ngModel)]="prenotazione.time" name="time" required />
+      <br /><br />
+
+      <label>Numero di Persone:</label>
+      <input type="number" [(ngModel)]="prenotazione.number" name="number" required />
+      <br /><br />
+
+      <button type="submit">Aggiungi</button>
+    </form>
+
+    <!-- FORM CONTROLLA -->
+    <form *ngIf="azione === 'controlla'" (ngSubmit)="getReservation()" #editForm="ngForm">
+      <p>Inserisci il codice di modifica:</p>
+      <input type="text" [(ngModel)]="randomCode" name="randomCode" required />
+      <!-- altri campi da modificare, se vuoi -->
+     <button type="submit">Controlla</button>
+    </form>
+     
+    <div *ngIf="showDetails">
+      <h3>Dettagli Prenotazione</h3>
+      <p><strong>Nome:</strong> {{ prenotazione_da_modificare.name }}</p>
+      <p><strong>Contatto:</strong> {{ prenotazione_da_modificare.contact }}</p>
+      <p><strong>Data:</strong> {{ prenotazione_da_modificare.date }}</p>
+      <p><strong>Ora:</strong> {{ prenotazione_da_modificare.time }}</p>
+      <p><strong>Persone:</strong> {{ prenotazione_da_modificare.number }}</p>
+
+      
+      <button class = "modRes-button" (click)="showForm()">Modifica </button>
+      <button class = "modRes-button" (click)="rmvReservation()">Cancella</button>
+    </div>
+
+    <div>
+      <form *ngIf="modifyDetails" (ngSubmit)="modReservation()" #bookForm="ngForm">
+      <label>Nome:</label>
+      <input type="text" [(ngModel)]="prenotazione.name" name="name" required />
+      <br />
+
+      <label>Email/Telefono:</label>
+      <input type="text" [(ngModel)]="prenotazione.contact" name="contact" required />
+      <br />
+
+      <label>Data:</label>
+      <input type="date" [(ngModel)]="prenotazione.date" name="date" required />
+      <br /><br />
+
+      <label>Ora:</label>
+      <input type="time" [(ngModel)]="prenotazione.time" name="time" required />
+      <br /><br />
+
+      <label>Numero di Persone:</label>
+      <input type="number" [(ngModel)]="prenotazione.number" name="number" required />
+      <br /><br />
+
+      <button type="submit">Modifica</button>
+    </form>
+    </div>
+
+  </div>
+</div>
+
+<nav>
+  <ul>
+    <li><a routerLink="" routerLinkActive="active"> 🏠Home </a></li>
+  </ul>
+</nav>

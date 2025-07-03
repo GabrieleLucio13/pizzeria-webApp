@@ -1,0 +1,145 @@
+body {
+    background-color: #202123;
+    color: #e3e3e3;
+}
+
+h1 {
+     margin : 100px;
+     text-align : center;
+     font-size: 4rem;
+     font-family : Serif;
+     }
+
+h2 {
+    margin : 50px;
+    text-align: center;
+    font-size: 2rem;
+    font-family : Cursive;
+}
+
+/* Box del form */
+form {
+    background-color: #2b2c2f;
+    padding: 2rem;
+    max-width : 500px;
+    margin : 0 auto;
+    border-radius: 10px;
+}
+
+/* Campi */
+label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="hidden"],
+input[type="checkbox"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: #2b2c2f;
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+
+th, td {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.card-container {
+   display: flex;
+   justify-content: center;
+   gap: 30px;
+   flex-wrap: wrap;
+ }
+
+ .card {
+   background: #2b2c2f;
+   border-radius: 12px;
+   padding: 25px;
+   width: 300px;
+   text-align: center;
+   transition: transform 0.2s;
+ }
+
+ .card:hover {
+   transform: translateY(-5px);
+ }
+
+ .card h2 {
+   margin-top: 0;
+   padding-bottom : 50px;
+ }
+
+ .card p {
+   font-size: 20px;
+   margin: 15px 0;
+ }
+
+/* Link */
+a {
+    display: block;
+    margin : 30px;
+    text-align: center;
+    font-size : 1.5rem;
+    font-family : Cursive;
+    color: #10a37f;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1a7f64;;
+    text-decoration: underline;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2b2c2f;
+    text-align: center;
+    padding: 15px 0;
+    box-shadow: 0 16px 30px rgba(0,0,0,0.1);
+}
+
+header a {
+  margin: 0px;
+}
+
+footer a:hover {
+  color: #1a7f64;
+  text-decoration: underline;
+}

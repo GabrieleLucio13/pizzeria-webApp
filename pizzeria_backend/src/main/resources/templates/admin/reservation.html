@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestione Prenotazioni</title>
+    <link rel="stylesheet" th:href="@{../css/style.css}">
+</head>
+<header>
+    <a th:href="@{http://localhost:4200/}">🔙 Ritorna alla Pizzeria! 🔙</a>
+</header>
+<body>
+<h1>Lista dei Prenotati</h1>
+<a th:href="@{/dashboard}">←Torna alla dashboard</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Data</th>
+        <th>Ora</th>
+        <th>N Prenotati</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="r : ${reservations}">
+        <td th:text="${r.name}">Nome</td>
+        <td th:text="${r.contact}">Email</td>
+        <td th:text="${r.date}">Data</td>
+        <td th:text="${r.time}">Ora</td>
+        <td th:text="${r.number}">N Prenotati</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

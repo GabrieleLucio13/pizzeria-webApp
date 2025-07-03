@@ -1,0 +1,41 @@
+<div class="calendar-container">
+  <h1>Calendario Aperture</h1>
+
+  <div *ngIf="calendar.length > 0; else noData">
+    <div *ngFor="let mese of getMesiDistinct()">
+      <h2>{{ mese }}</h2>
+      
+      <table class="calendar-table">
+        <thead>
+          <tr>
+            <th>Giorno</th>
+            <th>Data</th>
+            <th>Apertura</th>
+            <th>Chiusura</th>
+            <th>Chiuso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let giorno of getGiorniPerMese(mese)">
+            <td>{{ giorno.giorno }}</td>
+            <td>{{ giorno.data }}</td>
+            <td>{{ giorno.chiuso ? '-' : giorno.apertura }}</td>
+            <td>{{ giorno.chiuso ? '-' : giorno.chiusura }}</td>
+            <td>{{ giorno.chiuso ? 'Sì' : 'No' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <ng-template #noData>
+    <p>Nessun dato disponibile.</p>
+  </ng-template>
+
+  <nav>
+  <ul>
+    <li><a routerLink="" routerLinkActive="active"> 🏠Home </a></li>
+  </ul>
+</nav>
+</div>
+

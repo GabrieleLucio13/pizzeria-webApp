@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Modifica Giorno</title>
+  <link rel="stylesheet" th:href="@{../css/style.css}">
+</head>
+<header>
+  <a th:href="@{http://localhost:4200/}">🔙 Ritorna alla Pizzeria! 🔙</a>
+</header>
+<body>
+<h1>Modifica giorno: <span th:text="${giorno.data}"></span></h1>
+
+<form th:action="@{/calendar_editor}" method="post">
+  <input type="hidden" name="data" th:value="${giorno.data}" />
+  <label>Orario di apertura:</label>
+  <input type="time" name="apertura" th:value="${giorno.apertura}" />
+  <label>Orario di chiusura:</label>
+  <input type="time" name="chiusura" th:value="${giorno.chiusura}"/>
+  <label>Chiuso:</label>
+  <input type="checkbox" name="chiuso" value="true"
+         th:checked="${giorno.chiuso ? 'checked' : null}" /><br/>
+
+  <button type="submit">Salva Modifiche</button>
+</form>
+
+<a href="/calendar_editor">← Torna al calendario</a>
+</body>
+</html>
