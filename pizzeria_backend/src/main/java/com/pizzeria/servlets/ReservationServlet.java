@@ -17,8 +17,9 @@ import org.thymeleaf.web.IWebExchange;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
-@WebServlet(urlPatterns = "/reservation")
+@WebServlet(urlPatterns = {"/reservation", "/reservation/delete"})
 public class ReservationServlet extends HttpServlet {
 
     @Autowired
@@ -48,5 +49,19 @@ public class ReservationServlet extends HttpServlet {
 
         resp.setContentType("text/html;charset=UTF-8");
         templateEngine.process("admin/reservation", ctx, resp.getWriter());
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String code = req.getParameter("code");
+
+        if (code != null && !code.isBlank()) {
+            Optional<Reservation> reservation = resService.findByRandomCode(code);
+
+            if (reservation.isPresent()) {
+                resService.deleteRes(reservation.get());
+                resp.sendRedirect(req.getContextPath() + "/reservation");
+            }
+        }
     }
 }

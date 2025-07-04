@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,5 +40,15 @@ public class DayProxy {
         } catch (SQLException e){
             System.out.println("Errore durante la ricerca del calendario: " + e.getMessage());
         }
+    }
+
+    public Day findByDate(LocalDate date){
+        Day day = new Day();
+        try{
+            day = dao.findByDate(date);
+        } catch (SQLException e){
+            System.out.println("Errore durante la ricerca del calendario: " + e.getMessage());
+        }
+        return day;
     }
 }

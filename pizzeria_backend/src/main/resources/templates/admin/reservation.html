@@ -5,7 +5,7 @@
     <link rel="stylesheet" th:href="@{../css/style.css}">
 </head>
 <header>
-    <a th:href="@{http://localhost:4200/}">🔙 Ritorna alla Pizzeria! 🔙</a>
+    <a th:href="@{/logout}">🔙 Ritorna alla Pizzeria! 🔙</a>
 </header>
 <body>
 <h1>Lista dei Prenotati</h1>
@@ -18,6 +18,7 @@
         <th>Data</th>
         <th>Ora</th>
         <th>N Prenotati</th>
+        <th>CODICE</th>
     </tr>
     </thead>
     <tbody>
@@ -27,8 +28,14 @@
         <td th:text="${r.date}">Data</td>
         <td th:text="${r.time}">Ora</td>
         <td th:text="${r.number}">N Prenotati</td>
+        <td th:text="${r.randomCode}">CODICE</td>
     </tr>
     </tbody>
 </table>
+<h2>➖ Cancella SOLO Prenotazioni duplicate </h2>
+<form th:action="@{/reservation/delete}" method="post">
+    <input type="text" name="code" placeholder="Inserire Codice" required>
+    <button type="submit">Elimina</button>
+</form>
 </body>
 </html>

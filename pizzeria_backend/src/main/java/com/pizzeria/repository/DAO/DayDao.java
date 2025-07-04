@@ -85,4 +85,26 @@ public class DayDao {
         }
     }
 
+    public Day findByDate(LocalDate date) throws SQLException {
+        String sql = "SELECT * FROM calendar WHERE data = ?";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement statement = conn.prepareStatement(sql)) {
+
+            statement.setDate(1, Date.valueOf(date));
+            ResultSet rs = statement.executeQuery();
+
+        if (rs.next()) {
+            Day day = new Day();
+            day.setData(rs.getDate("data").toLocalDate());
+            day.setGiorno(rs.getString("giorno"));
+            day.setMese(rs.getString("mese"));
+            day.setApertura(rs.getTime("apertura").toLocalTime());
+            day.setChiusura(rs.getTime("chiusura").toLocalTime());
+            day.setChiuso(rs.getBoolean("chiuso"));
+            return day;
+        }
+        return null;
+        }
+    }
+
 }

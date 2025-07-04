@@ -15,9 +15,9 @@ export class ReservationService {
     return this.http.get<Booking>(`${this.apiUrl}/${code}`); 
   }
 
-  addReservation(booking: Booking): Observable<Booking> {
-    return this.http.post<Booking>(this.apiUrl, booking);
-  }
+  addReservation(booking: Booking): Observable<string> {
+  return this.http.post(this.apiUrl, booking, { responseType: 'text' });
+}
 
   deleteReservation(code : String) : Observable<any> {
      return this.http.delete<Booking>(`${this.apiUrl}/${code}`);

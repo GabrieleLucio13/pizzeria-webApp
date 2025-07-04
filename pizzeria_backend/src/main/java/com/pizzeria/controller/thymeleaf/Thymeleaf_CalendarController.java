@@ -2,6 +2,7 @@ package com.pizzeria.controller.thymeleaf;
 
 import com.pizzeria.model.Day;
 import com.pizzeria.service.CalendarService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -20,13 +21,23 @@ public class Thymeleaf_CalendarController {
     @Autowired
     private CalendarService service;
     @GetMapping
-    public String mostraCalendario(Model model) {
+    public String mostraCalendario(Model model, HttpSession session) {
+        Boolean isLogged = (Boolean) session.getAttribute("loggedIn");
+        if (isLogged == null || !isLogged) {
+            return "redirect:" + "http://localhost:4200/login";
+
+        }
         List<Day> days = service.getCalendar();
         model.addAttribute("calendar", days);
         return "admin/events";
     }
     @GetMapping("/edit")
-    public String vaiAModifica(@RequestParam("data") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate data, Model model) {
+    public String vaiAModifica(HttpSession session, @RequestParam("data") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate data, Model model) {
+        Boolean isLogged = (Boolean) session.getAttribute("loggedIn");
+        if (isLogged == null || !isLogged) {
+            return "redirect:" + "http://localhost:4200/login";
+
+        }
         List<Day> days = service.getCalendar();
         for (Day day : days) {
             if (day.getData().equals(data)) {

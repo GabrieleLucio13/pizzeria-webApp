@@ -20,12 +20,17 @@ public class ResController {
     private MailService mailService;
 
     @PostMapping
-    public void createRes(@RequestBody Reservation res) {
-        resService.saveRes(res);
-        mailService.sendEmail("utente@example.com",
+    public ResponseEntity<String> createRes(@RequestBody Reservation res) {
+       try{
+           resService.saveRes(res);
+           mailService.sendEmail(res.getContact(),
                 "Conferma Prenotazione",
-                ("Prenotazione salvata con successo! Ecco il tuo codice: " + res.getRandomCode())
-        );
+                ("Prenotazione salvata con successo! Ecco il tuo codice: " + res.getRandomCode()) + ". Attenzione! Salva questo codice il prima possibile e non condividerlo con nessuno. Qualora volessi modificare la prenotazione, questo codice non sarà più valido, te ne invieremo un altro");
+
+           return ResponseEntity.ok("Prenotazione salvata con successo!");
+       } catch (IllegalArgumentException e) {
+           return ResponseEntity.badRequest().body(e.getMessage());
+       }
     }
 
     @PutMapping("/{randomCode}")

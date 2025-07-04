@@ -38,9 +38,18 @@ export class reservationComponent {
   constructor(private reservationService: ReservationService, private router: Router) {}
 
   addReservation() {
-    this.reservationService.addReservation(this.prenotazione).subscribe(() => {
-      alert('Prenotazione aggiunta con successo!');
+    this.reservationService.addReservation(this.prenotazione).subscribe({
+      next: (response) => {
+      alert('Successo: ' + response);
       this.router.navigate(['/']);
+    }, 
+      error:(error) => {
+        if (error.status === 400) {
+          alert('Errore: ' + error.error);
+        } else {
+          alert('Errore generico nella prenotazione.');
+        }
+      }
     });
   }
 

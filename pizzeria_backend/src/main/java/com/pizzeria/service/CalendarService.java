@@ -55,4 +55,8 @@ public class CalendarService {
     public void update(Day day) {
         proxy.update(day);
     }
+
+    public Day findByDate(LocalDate data) {
+        return proxy.findByDate(data);
+    }
 }
