@@ -54,12 +54,12 @@ var BookListComponent = function () {
     var BookListComponent = _classThis = /** @class */ (function () {
         function BookListComponent_1(bookService) {
             this.bookService = bookService;
-            this.books = []; // Array di libri
-        } // Iniettiamo il servizio
+            this.books = []; 
+        } 
         BookListComponent_1.prototype.ngOnInit = function () {
             var _this = this;
             this.bookService.getBooks().subscribe(function (data) {
-                _this.books = data; // Quando arrivano i dati, li salviamo in `books`
+                _this.books = data; 
             });
         };
         return BookListComponent_1;

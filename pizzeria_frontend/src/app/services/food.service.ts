@@ -7,12 +7,12 @@ import { Food } from '../models/food.model';
   providedIn: 'root'  // Il service sarà disponibile in tutta l'app
 })
 export class FoodService {
-  private apiUrl = 'http://localhost:8080/api/foods';  // URL del backend
+  private apiUrl = 'http://localhost:8080/api/foods'; 
 
   constructor(private http: HttpClient) {}
 
   getFoods(): Observable<Food[]> {
-    return this.http.get<Food[]>(this.apiUrl); // Esegue una richiesta GET
+    return this.http.get<Food[]>(this.apiUrl); 
   }
 }
 

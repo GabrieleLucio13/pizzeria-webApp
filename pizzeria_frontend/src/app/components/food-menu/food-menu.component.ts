@@ -17,11 +17,11 @@ export class FoodMenuComponent implements OnInit {
   types: string[] = ['Pizze', 'Arancini', 'Insalate', 'Bevande'];
   typeSelected = 'Pizze';
 
-  constructor(private foodService: FoodService) {}  // Iniettiamo il servizio
+  constructor(private foodService: FoodService) {}  
 
   ngOnInit() {
     this.foodService.getFoods().subscribe(data => {
-      this.allFoods = data;  // Quando arrivano i dati, li salviamo in `allFoods`
+      this.allFoods = data;  
     });
   }
 

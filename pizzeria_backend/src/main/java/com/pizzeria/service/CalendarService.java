@@ -22,7 +22,6 @@ public class CalendarService {
 
     @PostConstruct
     public void init()  {
-
         LocalDate today = LocalDate.now();
         for (int i = 0; i < 90; i++) {
             LocalDate data = today.plusDays(i);
@@ -44,7 +43,9 @@ public class CalendarService {
                 day.setChiusura(LocalTime.of(23, 0));
             }
 
-            proxy.save(day);
+            if (!proxy.existsByDate(data)) {
+                proxy.save(day);
+            }
         }
     }
 

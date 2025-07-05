@@ -51,4 +51,15 @@ public class DayProxy {
         }
         return day;
     }
+
+    public boolean existsByDate(LocalDate data) {
+        boolean flag = false;
+        try{
+            flag = dao.existsByDate(data);
+        }
+        catch(SQLException e){
+            System.out.println("Errore durante la ricerca del calendario: " + e.getMessage());
+        }
+        return flag;
+    }
 }

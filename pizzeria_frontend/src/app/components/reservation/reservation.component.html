@@ -17,7 +17,7 @@
       <input type="text" [(ngModel)]="prenotazione.name" name="name" required />
       <br />
 
-      <label>Email/Telefono:</label>
+      <label>Email:</label>
       <input type="text" [(ngModel)]="prenotazione.contact" name="contact" required />
       <br />
 
@@ -40,7 +40,6 @@
     <form *ngIf="azione === 'controlla'" (ngSubmit)="getReservation()" #editForm="ngForm">
       <p>Inserisci il codice di modifica:</p>
       <input type="text" [(ngModel)]="randomCode" name="randomCode" required />
-      <!-- altri campi da modificare, se vuoi -->
      <button type="submit">Controlla</button>
     </form>
      
@@ -63,7 +62,7 @@
       <input type="text" [(ngModel)]="prenotazione.name" name="name" required />
       <br />
 
-      <label>Email/Telefono:</label>
+      <label>Email:</label>
       <input type="text" [(ngModel)]="prenotazione.contact" name="contact" required />
       <br />
 

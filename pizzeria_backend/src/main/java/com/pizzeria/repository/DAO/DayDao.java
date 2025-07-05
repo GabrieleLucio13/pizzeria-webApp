@@ -15,20 +15,6 @@ public class DayDao {
     @Autowired
     private DataSource dataSource;
 
-    public boolean existsByDate(LocalDate data) throws SQLException {
-        String sql = "SELECT COUNT(*) FROM calendar WHERE data = ?";
-        try (Connection conn = dataSource.getConnection();
-             PreparedStatement statement = conn.prepareStatement(sql)) {
-            statement.setDate(1, Date.valueOf(data));
-            try (ResultSet rs = statement.executeQuery()) {
-                if (rs.next()) {
-                    return rs.getInt(1) > 0;
-                }
-            }
-        }
-        return false;
-    }
-
     public void save(Day day) throws SQLException {
         String sql = "INSERT INTO calendar (data, apertura, chiusura, chiuso, giorno, mese) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = dataSource.getConnection();
@@ -106,5 +92,17 @@ public class DayDao {
         return null;
         }
     }
-
+    public boolean existsByDate(LocalDate data) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM calendar WHERE data = ?";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setDate(1, Date.valueOf(data));
+            try (ResultSet rs = statement.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        }
+        return false;
+    }
 }

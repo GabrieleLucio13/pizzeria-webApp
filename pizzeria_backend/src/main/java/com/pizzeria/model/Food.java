@@ -13,11 +13,8 @@ public class Food {
     private String ingredients;
     private double price;
 
-    //  COSTRUTTORE PER JPA
     public Food(){}
 
-
-    // 🔹 Costruttore senza ID (per creare nuovi oggetti)
     public Food(String type, String name, String ingredients, double price) {
         this.type = type;
         this.name = name;

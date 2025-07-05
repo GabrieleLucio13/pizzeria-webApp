@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Booking } from '../models/Booking.model';
 
 @Injectable({
-  providedIn: 'root'  // Il service sarà disponibile in tutta l'app
+  providedIn: 'root'  
 })
 export class ReservationService {
   private apiUrl = 'http://localhost:8080/api/reservation';  
