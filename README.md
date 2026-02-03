@@ -37,7 +37,7 @@ a clear separation of concerns and maintainability.
 - Reservation management
 - Administrative dashboard
 
-## Testing & Quality Assurance
+### Testing & Quality Assurance
 - DAO layer integration tests using @JdbcTest
 - Service layer unit tests with mocked dependencies
 - Controller layer tests using MockMvc
