@@ -17,6 +17,12 @@ a clear separation of concerns and maintainability.
 - Pattern: DAO
 - Authentication: HttpSession
 - External APIs integration
+- Testing: JUnit 5, Mockito, Spring Test, MockMvc, JDBC integration testing
+
+## External Services
+-Email service for reservation notifications
+-Calendar availability service
+-External APIs integration(Unplash API, MailTrap API)
 
 ## Features
 
@@ -31,6 +37,11 @@ a clear separation of concerns and maintainability.
 - Reservation management
 - Administrative dashboard
 
+## Testing & Quality Assurance
+-DAO layer integration tests using @JdbcTest
+-Service layer unit tests with mocked dependencies
+-Controller layer tests using MockMvc
+
 ## Software Engineering Focus
 - MVC architecture
 - DAO pattern for data access
@@ -39,5 +50,4 @@ a clear separation of concerns and maintainability.
 - Full-stack development workflow
 
 ## Project Context
-University project developed for the Web Programming course
-at the University of Calabria.
+University project developed for the Web Programming course. The repository also includes a PowerPoint presentation used during the exam.
