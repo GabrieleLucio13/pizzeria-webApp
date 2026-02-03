@@ -15,7 +15,6 @@ import java.util.Optional;
 public class ResService {
     @Autowired
     private ResProxy resProxy;
-
     @Autowired
     private CalendarService calendarService;
 
@@ -43,7 +42,6 @@ public class ResService {
     public Optional<Reservation> findByRandomCode(String randomCode){
         return resProxy.findByRandomCode(randomCode);
     }
-
     public void updateReservation(Reservation reservation) {
         resProxy.updateRes(reservation);
     }
