@@ -20,9 +20,9 @@ a clear separation of concerns and maintainability.
 - Testing: JUnit 5, Mockito, Spring Test, MockMvc, JDBC integration testing
 
 ## External Services
--Email service for reservation notifications
--Calendar availability service
--External APIs integration(Unplash API, MailTrap API)
+- Email service for reservation notifications
+- Calendar availability service
+- External APIs integration(Unplash API, MailTrap API)
 
 ## Features
 
