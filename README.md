@@ -38,9 +38,9 @@ a clear separation of concerns and maintainability.
 - Administrative dashboard
 
 ## Testing & Quality Assurance
--DAO layer integration tests using @JdbcTest
--Service layer unit tests with mocked dependencies
--Controller layer tests using MockMvc
+- DAO layer integration tests using @JdbcTest
+- Service layer unit tests with mocked dependencies
+- Controller layer tests using MockMvc
 
 ## Software Engineering Focus
 - MVC architecture
