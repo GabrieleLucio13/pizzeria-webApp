@@ -1,53 +1,100 @@
-# Pizzeria Management Web Application
+# 🍕 Pizzeria Web Application
 
-## Overview
-Web application developed to manage a pizzeria, providing a responsive
-user interface for customers and protected administrative functionalities.
-The project was developed and presented as part of a university exam.
+Applicazione web **full-stack** per la gestione completa di una pizzeria, che include **prenotazioni online**, **menu dinamico** e **pannello amministrativo**.  
+Il progetto è strutturato come **monorepo** con backend Java/Spring Boot e frontend SPA in Angular.
 
-## Architecture
-The application follows the MVC (Model-View-Controller) pattern to ensure
-a clear separation of concerns and maintainability.
+L’obiettivo è fornire una soluzione moderna, scalabile e ben architettata, mettendo in pratica pattern consolidati, separazione delle responsabilità e testing automatizzato.
 
-## Tech Stack
-- Backend: Java, Spring Boot
-- Frontend: Angular, HTML, CSS, Bootstrap
-- Database: H2
-- Architecture: MVC
-- Pattern: DAO
-- Authentication: HttpSession
-- External APIs integration
-- Testing: JUnit 5, Mockito, Spring Test, MockMvc, JDBC integration testing
+## 🚀 Funzionalità principali
 
-## External Services
-- Email service for reservation notifications
-- Calendar availability service
-- External APIs integration(Unplash API, MailTrap API)
+### Area Pubblica (Clienti)
+- Homepage dinamica con immagini caricate da API esterna (Unsplash)
+- Visualizzazione del menu con filtraggio per categoria
+- Sistema di prenotazione tavoli con validazione delle disponibilità
+- Modifica e cancellazione prenotazioni tramite codice univoco
+- Calendario interattivo delle aperture
+- Invio automatico email di conferma prenotazione
 
-## Features
+### Area Amministrativa
+- Autenticazione session-based
+- Dashboard amministrativa server-side (Thymeleaf)
+- CRUD completo del menu
+- Gestione calendario aperture/chiusure
+- Visualizzazione di tutte le prenotazioni effettuate
 
-### Customer Features
-- View menu
-- Browse available products
-- User-friendly responsive interface
+## 🧱 Architettura
 
-### Administrator Features
-- Secure authentication
-- Menu management
-- Reservation management
-- Administrative dashboard
+- **Client–Server** con separazione netta frontend / backend
+- **REST API** per la comunicazione con la SPA Angular
+- **Pannello admin** server-rendered separato
+- Architettura a layer:
+  - Controller
+  - Service (business logic)
+  - DAO + Proxy (accesso ai dati)
 
-### Testing & Quality Assurance
-- DAO layer integration tests using @JdbcTest
-- Service layer unit tests with mocked dependencies
-- Controller layer tests using MockMvc
+### Pattern utilizzati
+- MVC (Model-View-Controller)
+- DAO (Data Access Object)
+- Proxy Pattern
+- Service Layer
+- Dependency Injection
+- Component-Based Architecture (frontend)
 
-## Software Engineering Focus
-- MVC architecture
-- DAO pattern for data access
-- Separation of concerns
-- Backend RESTful services
-- Full-stack development workflow
+## 🛠️ Stack Tecnologico
 
-## Project Context
-University project developed for the Web Programming course. The repository also includes a PowerPoint presentation used during the exam.
+### Backend
+- Java 17
+- Spring Boot 3
+- Spring Data JPA (Hibernate)
+- H2 Database
+- Thymeleaf
+- Maven
+- Lombok
+- JavaMailSender (Mailtrap)
+
+### Frontend
+- Angular 19
+- TypeScript
+- RxJS
+- Bootstrap 5
+- Font Awesome
+
+### Testing
+- JUnit 5
+- Mockito
+- MockMvc
+- Jasmine
+- Karma
+
+## 🔗 REST API (principali endpoint)
+
+| Metodo | Endpoint | Descrizione |
+|------|--------|------------|
+| GET | `/api/foods` | Recupera menu |
+| GET | `/api/calendar` | Calendario disponibilità |
+| POST | `/api/reservation` | Crea prenotazione |
+| GET | `/api/reservation/{code}` | Recupera prenotazione |
+| PUT | `/api/reservation/{code}` | Modifica prenotazione |
+| DELETE | `/api/reservation/{code}` | Cancella prenotazione |
+
+## 🧪 Testing
+
+Il progetto include test automatici a più livelli:
+- Unit test della business logic
+- Integration test del layer DAO
+- Test dei controller REST
+- Test di componenti e servizi Angular
+
+## 🎯 Obiettivi del progetto
+
+- Applicare buone pratiche di **clean architecture**
+- Dimostrare competenze **full-stack**
+- Utilizzare pattern architetturali reali
+- Implementare **testing strutturato**
+- Integrare servizi esterni (email, immagini)
+
+## 📌 Tecnologie & Keywords
+
+Java, Spring Boot, Angular, TypeScript, REST API, JPA, Hibernate,  
+H2 Database, Maven, JUnit, Mockito, Jasmine, Karma, Bootstrap,  
+RxJS, MVC, DAO Pattern, Proxy Pattern, Git, Full-Stack Development
